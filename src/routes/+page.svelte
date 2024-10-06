@@ -36,7 +36,7 @@
     <p>
       You've stumbled upon my webpage! Hi, I'm Daniel, a programmer and CS
       student from Czechia <img
-        src="/czechia.svg"
+        src="/res/czechia.svg"
         alt="Czech Flag"
         style="vertical-align:middle"
       />
