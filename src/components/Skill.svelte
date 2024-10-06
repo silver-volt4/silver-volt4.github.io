@@ -43,7 +43,8 @@
         font-size: 24px;
     }
 
-    .bar, .bar > * {
+    .bar,
+    .bar > * {
         width: 100%;
         height: 10px;
         border-radius: 5px;

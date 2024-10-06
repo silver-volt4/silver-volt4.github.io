@@ -5,6 +5,11 @@
 
   import { mdiGithub } from "@mdi/js";
   import schoolGithub from "./parts/assets/schoolGithub.svgpath?raw";
+  import discord from "./parts/assets/discord.svgpath?raw";
+
+  function showDiscord() {
+    alert('My username on Discord is "@silver_volt4".\nSorry for the plain and boring alert window, I\'m writng this at nearly 11 PM and I\'m tired :(');
+  }
 </script>
 
 <main>
@@ -12,7 +17,7 @@
     <img
       class="pfp"
       src="https://avatars.githubusercontent.com/u/35656715"
-      alt="Profile picture"
+      alt="Avatar"
     />
     <div class="vbox">
       <h1>Daniel's landfill of weird things</h1>
@@ -43,12 +48,23 @@
       <b>silver_volt4</b>
     </div>
     <div class="links">
-      <a href="https://github.com/silver-volt4" target="_blank">
+      <a
+        href="https://github.com/silver-volt4"
+        target="_blank"
+        data-tooltip="My GitHub profile"
+      >
         <SvgIcon type="mdi" path={mdiGithub} size={32}></SvgIcon>
       </a>
-      <a href="https://github.com/sykdan" target="_blank">
+      <a
+        href="https://github.com/sykdan"
+        target="_blank"
+        data-tooltip="My school GitHub profile"
+      >
         <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
       </a>
+      <span data-tooltip="Discord" style="cursor:pointer" on:click={showDiscord}>
+        <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
+      </span>
     </div>
   </footer>
 </main>
