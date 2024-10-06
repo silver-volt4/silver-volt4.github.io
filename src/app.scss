@@ -1,0 +1,57 @@
+@import "./constants.scss";
+
+:root {
+  font-family: Jost, Futura, sans-serif;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffea;
+}
+
+.ps {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 32px;
+  margin-bottom: 48px;
+}
+
+p {
+  font-size: 24px;
+}
+
+.heading {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  &::before {
+    content: "#";
+    font-weight: normal;
+    opacity: 0.2;
+  }
+}
+
+.gridlet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .gridlet {
+    flex-direction: column;
+
+    > * {
+      width: unset !important;
+      flex-grow: 1;
+    }
+  }
+}
