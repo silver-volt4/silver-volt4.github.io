@@ -1,6 +1,10 @@
 <script lang="ts">
   import Skills from "./parts/Skills.svelte";
   import Projects from "./parts/Projects.svelte";
+  import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
+
+  import { mdiGithub } from "@mdi/js";
+  import schoolGithub from "./parts/assets/schoolGithub.svgpath?raw";
 </script>
 
 <main>
@@ -19,7 +23,11 @@
   <div class="ps">
     <p>
       You've stumbled upon my webpage! Hi, I'm Daniel, a programmer and CS
-      student from Czechia!
+      student from Czechia <img
+        src="/czechia.svg"
+        alt="Czech Flag"
+        style="vertical-align:middle"
+      />
     </p>
     <p>
       I've been tinkering with computers and code since as early as 2020, and
@@ -29,24 +37,44 @@
 
   <Skills />
   <Projects />
+
+  <footer class="ps">
+    <div>
+      <b>silver_volt4</b>
+    </div>
+    <div class="links">
+      <a href="https://github.com/silver-volt4" target="_blank">
+        <SvgIcon type="mdi" path={mdiGithub} size={32}></SvgIcon>
+      </a>
+      <a href="https://github.com/sykdan" target="_blank">
+        <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
+      </a>
+    </div>
+  </footer>
 </main>
 
 <style lang="scss">
+  @import "./constants.scss";
+
   @media screen and (max-width: 600px) {
     header {
       flex-direction: column;
     }
   }
 
-  header {
+  header,
+  footer {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 32px;
     margin-top: 48px;
     margin-bottom: 48px;
+  }
+
+  header {
+    justify-content: center;
     padding-bottom: 32px;
-    border-bottom: solid 1px #ffffea;
+    border-bottom: solid 1px $light;
 
     .vbox {
       display: flex;
@@ -62,6 +90,21 @@
     .pfp {
       height: 128px;
       border-radius: 100%;
+    }
+  }
+
+  footer {
+    padding-top: 32px;
+    border-top: solid 1px $light;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .links {
+    display: flex;
+    gap: 8px;
+    a {
+      color: $light;
     }
   }
 </style>
