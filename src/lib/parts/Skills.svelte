@@ -14,9 +14,8 @@
   import netteLogo from "$lib/assets/icons/nette.svgpath?raw";
 </script>
 
-<h1 class="ps heading">Skills</h1>
-
-<div class="ps">
+<h1 class="heading">Skills</h1>
+<div class="section">
   <h2>Languages</h2>
   <div class="gridlet">
     <Skill

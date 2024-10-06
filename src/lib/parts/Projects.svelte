@@ -1,13 +1,17 @@
 <script>
   import Project from "../components/Project.svelte";
+
+  import SilverBot from "$lib/assets/images/projects/silverbot.png";
+  import PuzzlePrism from "$lib/assets/images/projects/puzzleprism.png";
+  import Hexalema from "$lib/assets/images/projects/hexalema.png";
+  import Yamb from "$lib/assets/images/projects/yamb.png";
 </script>
 
-<h1 class="ps heading">Projects</h1>
-
-<div class="ps">
+<h1 class="heading">Projects</h1>
+<div class="section">
   <div class="gridlet">
     <Project
-      src="/projects/silverbot.png"
+      src={SilverBot}
       href="https://github.com/Silver-Volt4/SilverBot"
       color="#4ed8da"
       name="SilverBot"
@@ -17,7 +21,7 @@
       A simple Discord bot all about a fictional hedgehog!
     </Project>
     <Project
-      src="/projects/puzzleprism.png"
+      src={PuzzlePrism}
       href="https://sykdan2188.itch.io/puzzle-prism"
       color="#1f1f1f"
       name="Puzzle Prism"
@@ -28,7 +32,7 @@
       project.
     </Project>
     <Project
-      src="/projects/hexalema.png"
+      src={Hexalema}
       href="https://sykdan.github.io/hexalema"
       color="#980691"
       name="Hexalema"
@@ -38,7 +42,7 @@
       A tabletop game for two players closely resembling the "Royal Game of Ur".
     </Project>
     <Project
-      src="/projects/yamb.png"
+      src={Yamb}
       href="https://sykdan.github.io/kostky"
       color="#081d77"
       name="Yamb"
