@@ -48,11 +48,3 @@
         </Project>
     </div>
 </div>
-
-<style>
-    .skills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-</style>
