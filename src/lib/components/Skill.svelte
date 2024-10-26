@@ -1,4 +1,5 @@
 <script lang="ts">
+  /* @ts-ignore */
   import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
 
   export let color: string;
@@ -16,12 +17,13 @@
     </span>
   </div>
   <div class="bar">
-    <div class="confidence" style:width="{confidence * 100}%" />
+    <div class="confidence" style:width="{confidence * 100}%"></div>
   </div>
 </div>
 
 <style lang="scss">
-  @import "$lib/style/constants.scss";
+  @use "$lib/style/constants.scss";
+  @use "sass:color";
 
   .skill {
     display: inline-block;
@@ -55,7 +57,7 @@
       color: $color;
 
       .bar {
-        background-color: transparentize($color, 0.7);
+        background-color: color.adjust($color, $alpha: 0.7);
 
         .confidence {
           background-color: $color;
@@ -64,6 +66,6 @@
     }
   }
 
-  @include variant("light", $light);
-  @include variant("dark", $dark);
+  @include variant("light", constants.$light);
+  @include variant("dark", constants.$dark);
 </style>

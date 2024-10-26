@@ -1,6 +1,7 @@
-@import "./constants.scss";
+@use "./constants.scss";
+@use "./font.scss";
 
-:root {
+:root, button {
   font-family: Jost, Futura, sans-serif;
 }
 
@@ -88,7 +89,7 @@ p {
     padding: 4px;
     text-align: center;
     font-size: 12px;
-    color: $light;
+    color: constants.$light;
     transform: translate(-50%, -100%);
     z-index: 1;
     display: none;
@@ -103,5 +104,5 @@ p {
 }
 
 a {
-  color: $accent;
+  color: constants.$accent;
 }

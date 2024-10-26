@@ -1,14 +1,10 @@
 <script lang="ts">
-  import Skills from "$lib/parts/Skills.svelte";
-  import Projects from "$lib/parts/Projects.svelte";
   /* @ts-ignore */
   import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
 
   import { mdiGithub } from "@mdi/js";
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
   import discord from "$lib/assets/icons/discord.svgpath?raw";
-
-  import cz from "$lib/assets/images/czechia.svg";
 
   function showDiscord() {
     alert(
@@ -17,9 +13,9 @@
   }
 </script>
 
-<head>
+<svelte:head>
   <title>Daniel's landfill of weird things</title>
-</head>
+</svelte:head>
 
 <main class="ps">
   <header>
@@ -57,19 +53,19 @@
       >
         <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
       </a>
-      <span
+      <button
         data-tooltip="Discord"
         style="cursor:pointer"
         on:click={showDiscord}
       >
         <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
-      </span>
+      </button>
     </div>
   </footer>
 </main>
 
 <style lang="scss">
-  @import "$lib/style/constants.scss";
+  @use "$lib/style/constants.scss";
 
   @media screen and (max-width: 600px) {
     header {
@@ -95,7 +91,7 @@
   header {
     justify-content: center;
     margin-bottom: 32px;
-    border-bottom: solid 1px $light;
+    border-bottom: solid 1px constants.$light;
 
     .vbox {
       display: flex;
@@ -116,7 +112,7 @@
 
   footer {
     padding-top: 32px;
-    border-top: solid 1px $light;
+    border-top: solid 1px constants.$light;
     display: flex;
     justify-content: space-between;
   }
@@ -124,8 +120,12 @@
   .links {
     display: flex;
     gap: 8px;
-    a {
-      color: $light;
+    a, button {
+      background: none;
+      border: none;
+      display:inline;
+      padding: 0;
+      color: constants.$light;
     }
   }
 </style>

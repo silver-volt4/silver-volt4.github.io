@@ -4,7 +4,7 @@
 
 <div>
     <div class="yeah">
-        <img src={yeah} />
+        <img src={yeah} alt="Miiverse YEAH! icon" />
         <div>
             <span class="yeah-text">YEAH!</span>
             <p>You StreetPassed me!</p>
