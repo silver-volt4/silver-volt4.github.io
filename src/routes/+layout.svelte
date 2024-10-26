@@ -19,10 +19,6 @@
   };
 </script>
 
-<svelte:head>
-  <title>Daniel's landfill of weird things</title>
-</svelte:head>
-
 <main class="ps">
   <header>
     <a href="/" class="backlink">

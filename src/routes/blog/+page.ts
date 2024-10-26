@@ -1,8 +1,11 @@
 interface attributes {
     title: string,
-    description: string
+    description: string,
+    date: string,
     tags: string[]
 };
+
+export const _tagline = "Volt's blog"
 
 export async function load({ params }) {
     let pages = [];
