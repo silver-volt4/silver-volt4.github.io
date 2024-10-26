@@ -1,20 +1,7 @@
 <script lang="ts">
   import Skills from "$lib/parts/Skills.svelte";
   import Projects from "$lib/parts/Projects.svelte";
-  /* @ts-ignore */
-  import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
-
-  import { mdiGithub } from "@mdi/js";
-  import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
-  import discord from "$lib/assets/icons/discord.svgpath?raw";
-
   import cz from "$lib/assets/images/czechia.svg";
-
-  function showDiscord() {
-    alert(
-      "My username on Discord is \"@silver_volt4\".\nSorry for the plain and boring alert window, I'm writng this at nearly 11 PM and I'm tired :(",
-    );
-  }
 </script>
 
 <head>

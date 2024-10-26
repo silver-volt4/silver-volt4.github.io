@@ -105,4 +105,9 @@ p {
 
 a {
   color: constants.$accent;
+
+  &.default {
+    color: constants.$light;
+    text-decoration: none;
+  }
 }

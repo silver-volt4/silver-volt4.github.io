@@ -1,6 +1,7 @@
 <script lang="ts">
   /* @ts-ignore */
   import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
+  import { page } from "$app/stores";
 
   import { mdiGithub } from "@mdi/js";
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
@@ -11,6 +12,11 @@
       "My username on Discord is \"@silver_volt4\".\nSorry for the plain and boring alert window, I'm writng this at nearly 11 PM and I'm tired :(",
     );
   }
+
+  const LINKS = {
+    "/": "About",
+    "/blog": "Blog",
+  };
 </script>
 
 <svelte:head>
@@ -30,6 +36,11 @@
         <em>I make stuff. Some stupid, some less so.</em>
       </div>
     </a>
+    <nav>
+      {#each Object.entries(LINKS) as [url, name]}
+        <a href={url} class="{$page.url.pathname === url ? 'selected' : ''}">{name}</a>
+      {/each}
+    </nav>
   </header>
 
   <slot />
@@ -66,6 +77,7 @@
 
 <style lang="scss">
   @use "$lib/style/constants.scss";
+  @use "sass:color";
 
   @media screen and (max-width: 600px) {
     header {
@@ -76,7 +88,7 @@
   a.backlink {
     color: unset;
     text-decoration: unset;
-    margin: 0
+    margin: 0;
   }
 
   header a.backlink,
@@ -98,6 +110,34 @@
       flex-direction: column;
     }
 
+    a.backlink {
+      margin-bottom: 32px;
+    }
+
+    nav {
+      display: flex;
+      a {
+        flex: 1;
+        display: block;
+        font-size: 1.25em;
+        color: constants.$light;
+        text-decoration: none;
+        padding: 4px;
+        text-align: center;
+
+        transition: background-color 0.1s;
+
+        &:hover,
+        &.selected:hover {
+          background-color: color.adjust(constants.$light, $alpha: -0.8);
+        }
+
+        &.selected {
+          background-color: color.adjust(constants.$light, $alpha: -0.9);
+        }
+      }
+    }
+
     h1 {
       display: inline-block;
       font-size: 48px;
@@ -115,15 +155,17 @@
     border-top: solid 1px constants.$light;
     display: flex;
     justify-content: space-between;
+    margin-top: 32px;
   }
 
   .links {
     display: flex;
     gap: 8px;
-    a, button {
+    a,
+    button {
       background: none;
       border: none;
-      display:inline;
+      display: inline;
       padding: 0;
       color: constants.$light;
     }

@@ -57,7 +57,7 @@
       color: $color;
 
       .bar {
-        background-color: color.adjust($color, $alpha: 0.7);
+        background-color: color.adjust($color, $alpha: -0.7);
 
         .confidence {
           background-color: $color;
