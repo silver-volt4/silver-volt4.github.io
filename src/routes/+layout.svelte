@@ -15,7 +15,7 @@
 
   const LINKS = {
     "/": "About",
-    "/blog": "Blog",
+    "/blog/": "Blog",
   };
 </script>
 
