@@ -1,25 +1,23 @@
 <script lang="ts">
-  import Skills from "$lib/parts/Skills.svelte";
-  import Projects from "$lib/parts/Projects.svelte";
   /* @ts-ignore */
   import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
+  import { page } from "$app/stores";
 
   import { mdiGithub } from "@mdi/js";
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
   import discord from "$lib/assets/icons/discord.svgpath?raw";
-
-  import cz from "$lib/assets/images/czechia.svg";
 
   function showDiscord() {
     alert(
       "My username on Discord is \"@silver_volt4\".\nSorry for the plain and boring alert window, I'm writng this at nearly 11 PM and I'm tired :(",
     );
   }
-</script>
 
-<head>
-  <title>Daniel's landfill of weird things</title>
-</head>
+  const LINKS = {
+    "/": "About",
+    "/blog": "Blog",
+  };
+</script>
 
 <main class="ps">
   <header>
@@ -34,6 +32,11 @@
         <em>I make stuff. Some stupid, some less so.</em>
       </div>
     </a>
+    <nav>
+      {#each Object.entries(LINKS) as [url, name]}
+        <a href={url} class="{$page.url.pathname === url ? 'selected' : ''}">{name}</a>
+      {/each}
+    </nav>
   </header>
 
   <slot />
@@ -57,19 +60,20 @@
       >
         <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
       </a>
-      <span
+      <button
         data-tooltip="Discord"
         style="cursor:pointer"
         on:click={showDiscord}
       >
         <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
-      </span>
+      </button>
     </div>
   </footer>
 </main>
 
 <style lang="scss">
-  @import "$lib/style/constants.scss";
+  @use "$lib/style/constants.scss";
+  @use "sass:color";
 
   @media screen and (max-width: 600px) {
     header {
@@ -80,7 +84,7 @@
   a.backlink {
     color: unset;
     text-decoration: unset;
-    margin: 0
+    margin: 0;
   }
 
   header a.backlink,
@@ -95,11 +99,39 @@
   header {
     justify-content: center;
     margin-bottom: 32px;
-    border-bottom: solid 1px $light;
+    border-bottom: solid 1px constants.$light;
 
     .vbox {
       display: flex;
       flex-direction: column;
+    }
+
+    a.backlink {
+      margin-bottom: 32px;
+    }
+
+    nav {
+      display: flex;
+      a {
+        flex: 1;
+        display: block;
+        font-size: 1.25em;
+        color: constants.$light;
+        text-decoration: none;
+        padding: 4px;
+        text-align: center;
+
+        transition: background-color 0.1s;
+
+        &:hover,
+        &.selected:hover {
+          background-color: color.adjust(constants.$light, $alpha: -0.8);
+        }
+
+        &.selected {
+          background-color: color.adjust(constants.$light, $alpha: -0.9);
+        }
+      }
     }
 
     h1 {
@@ -116,16 +148,22 @@
 
   footer {
     padding-top: 32px;
-    border-top: solid 1px $light;
+    border-top: solid 1px constants.$light;
     display: flex;
     justify-content: space-between;
+    margin-top: 32px;
   }
 
   .links {
     display: flex;
     gap: 8px;
-    a {
-      color: $light;
+    a,
+    button {
+      background: none;
+      border: none;
+      display: inline;
+      padding: 0;
+      color: constants.$light;
     }
   }
 </style>

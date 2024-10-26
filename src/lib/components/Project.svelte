@@ -25,7 +25,7 @@
 </a>
 
 <style lang="scss">
-  @import "$lib/style/constants.scss";
+  @use "$lib/style/constants.scss";
 
   .project {
     display: block;
@@ -72,6 +72,6 @@
     }
   }
 
-  @include variant("light", $light);
-  @include variant("dark", $dark);
+  @include variant("light", constants.$light);
+  @include variant("dark", constants.$dark);
 </style>
