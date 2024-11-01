@@ -5,7 +5,7 @@ interface attributes {
     tags: string[]
 };
 
-export const _tagline = "Volt's blog"
+export const _tagline = "Daniel's blog"
 
 export async function load({ params }) {
     let pages = [];

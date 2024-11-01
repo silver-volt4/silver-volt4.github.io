@@ -34,7 +34,7 @@
   }
 
   .thumbnail {
-    border-radius: 8px 8px 0 0;
+    border-radius: 4px 4px 0 0;
     background-repeat: no-repeat;
     height: 200px;
     background-size: cover;
@@ -57,7 +57,7 @@
   .bottom {
     background-color: var(--bg);
     height: 80px;
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 4px 4px;
     padding: 0px 16px 16px 16px;
   }
 

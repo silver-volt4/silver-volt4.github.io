@@ -1,7 +1,8 @@
 @use "./constants.scss";
 @use "./font.scss";
 
-:root, button {
+:root,
+button {
   font-family: Jost, Futura, sans-serif;
 }
 
@@ -14,6 +15,7 @@ body,
 
 body {
   background-color: #0a0a0a;
+  background-attachment: fixed;
   color: #ffffea;
 }
 
@@ -24,6 +26,11 @@ body {
   box-sizing: border-box;
   padding: 0 32px;
   margin-bottom: 48px;
+}
+
+.psm {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section {
@@ -49,6 +56,14 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.hoverable {
+  transition: transform 0.1s;
+  &:hover {
+    transform: scale(1.05) rotate(-1deg);
+    z-index: 2;
+  }
 }
 
 @media screen and (max-width: 600px) {

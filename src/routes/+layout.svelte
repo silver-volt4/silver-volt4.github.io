@@ -19,9 +19,9 @@
   };
 </script>
 
-<main class="ps">
+<main>
   <header>
-    <a href="/" class="backlink">
+    <a href="/" class="backlink psm">
       <img
         class="pfp"
         src="https://avatars.githubusercontent.com/u/35656715"
@@ -32,41 +32,47 @@
         <em>I make stuff. Some stupid, some less so.</em>
       </div>
     </a>
-    <nav>
+    <nav class="ps">
       {#each Object.entries(LINKS) as [url, name]}
-        <a href={url} class="{$page.url.pathname === url ? 'selected' : ''}">{name}</a>
+        <a href={url} class={$page.url.pathname === url ? "selected" : ""}
+          >{name}</a
+        >
       {/each}
     </nav>
   </header>
 
-  <slot />
+  <div class="content ps">
+    <slot />
+  </div>
 
-  <footer>
-    <div>
-      <b>silver_volt4</b>
-    </div>
-    <div class="links">
-      <a
-        href="https://github.com/silver-volt4"
-        target="_blank"
-        data-tooltip="My GitHub profile"
-      >
-        <SvgIcon type="mdi" path={mdiGithub} size={32}></SvgIcon>
-      </a>
-      <a
-        href="https://github.com/sykdan"
-        target="_blank"
-        data-tooltip="My school GitHub profile"
-      >
-        <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
-      </a>
-      <button
-        data-tooltip="Discord"
-        style="cursor:pointer"
-        on:click={showDiscord}
-      >
-        <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
-      </button>
+  <footer class="psm">
+    <div class="ps">
+      <div>
+        <b>silver_volt4</b>
+      </div>
+      <div class="links">
+        <a
+          href="https://github.com/silver-volt4"
+          target="_blank"
+          data-tooltip="My GitHub profile"
+        >
+          <SvgIcon type="mdi" path={mdiGithub} size={32}></SvgIcon>
+        </a>
+        <a
+          href="https://github.com/sykdan"
+          target="_blank"
+          data-tooltip="My school GitHub profile"
+        >
+          <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
+        </a>
+        <button
+          data-tooltip="Discord"
+          style="cursor:pointer"
+          on:click={showDiscord}
+        >
+          <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
+        </button>
+      </div>
     </div>
   </footer>
 </main>
@@ -74,6 +80,8 @@
 <style lang="scss">
   @use "$lib/style/constants.scss";
   @use "sass:color";
+
+  $darkBack: color.adjust(constants.$dark, $lightness: 3%);
 
   @media screen and (max-width: 600px) {
     header {
@@ -85,6 +93,9 @@
     color: unset;
     text-decoration: unset;
     margin: 0;
+    max-width: 1000px;
+    padding: 0 24px;
+    margin: 0 auto;
   }
 
   header a.backlink,
@@ -92,14 +103,25 @@
     display: flex;
     align-items: center;
     gap: 32px;
-    margin-top: 48px;
-    margin-bottom: 48px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .content {
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
   }
 
   header {
     justify-content: center;
     margin-bottom: 32px;
-    border-bottom: solid 1px constants.$light;
+    padding-bottom: 0;
+    background-color: $darkBack;
+    padding-top: 32px;
 
     .vbox {
       display: flex;
@@ -112,6 +134,10 @@
 
     nav {
       display: flex;
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+
       a {
         flex: 1;
         display: block;
@@ -130,6 +156,7 @@
 
         &.selected {
           background-color: color.adjust(constants.$light, $alpha: -0.9);
+          border-bottom: solid 1px constants.$light;
         }
       }
     }
@@ -147,11 +174,14 @@
   }
 
   footer {
-    padding-top: 32px;
-    border-top: solid 1px constants.$light;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 32px;
+    > div {
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    background-color: $darkBack;
   }
 
   .links {

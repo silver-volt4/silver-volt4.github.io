@@ -5,19 +5,23 @@
   export let color: string;
   export let icon: any;
   export let name: string;
-  export let variant: "light" | "dark" = "light";
   export let confidence: number;
 </script>
 
-<div class="skill {variant}" style:background={color}>
+<div class="skill" style:--color={color}>
   <div class="title">
-    <SvgIcon type="mdi" path={icon} size={32}></SvgIcon>
-    <span class="name">
+    <div class="icon">
+      <SvgIcon type="mdi" path={icon} size={32}></SvgIcon>
+    </div>
+    <span class="name" style:color>
       {name}
     </span>
   </div>
   <div class="bar">
-    <div class="confidence" style:width="{confidence * 100}%"></div>
+    <div
+      class="confidence {confidence >= 1 ? 'full' : ''}"
+      style:width="{confidence * 100}%"
+    ></div>
   </div>
 </div>
 
@@ -26,46 +30,60 @@
   @use "sass:color";
 
   .skill {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     width: 240px;
-    height: 60px;
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 4px;
     box-sizing: content-box;
+    background: constants.$darkBack;
   }
 
   .title {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 16px;
+    height: 100%;
+    user-select: none;
+
+    .icon {
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      color: constants.$darkBack;
+      background-color: var(--color);
+      border-top-left-radius: 4px;
+    }
+
+    .name {
+      font-size: 18px;
+      padding: 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 20px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
-  .title .name {
-    font-size: 24px;
+  .bar {
+    background-color: color.adjust(constants.$darkBack, $lightness: 5%);
+    border-radius: 0 0 4px 4px;
+
+    .confidence {
+      background-color: var(--color);
+      opacity: 0.4;
+      border-bottom-left-radius: 4px;
+
+      &.full {
+        border-bottom-right-radius: 4px;
+      }
+    }
   }
 
   .bar,
   .bar > * {
     width: 100%;
-    height: 10px;
-    border-radius: 5px;
+    height: 4px;
   }
-
-  @mixin variant($type, $color) {
-    .#{$type} {
-      color: $color;
-
-      .bar {
-        background-color: color.adjust($color, $alpha: -0.7);
-
-        .confidence {
-          background-color: $color;
-        }
-      }
-    }
-  }
-
-  @include variant("light", constants.$light);
-  @include variant("dark", constants.$dark);
 </style>
