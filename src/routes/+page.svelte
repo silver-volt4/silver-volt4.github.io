@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div>
-  <p>
+  <p style="margin-top:0">
     You've stumbled upon my webpage! Hi, I'm Daniel, a programmer and CS student
     from Czechia <img src={cz} alt="Czech Flag" style="vertical-align:middle" />
   </p>
