@@ -7,12 +7,6 @@
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
   import discord from "$lib/assets/icons/discord.svgpath?raw";
 
-  function showDiscord() {
-    alert(
-      "My username on Discord is \"@silver_volt4\".\nSorry for the plain and boring alert window, I'm writng this at nearly 11 PM and I'm tired :(",
-    );
-  }
-
   const LINKS = {
     "/": "About",
     "/blog/": "Blog",
@@ -65,13 +59,13 @@
         >
           <SvgIcon type="mdi" path={schoolGithub} size={32}></SvgIcon>
         </a>
-        <button
+        <a
+          href="https://discord.com/users/276742341031755776"
+          target="_blank"
           data-tooltip="Discord"
-          style="cursor:pointer"
-          on:click={showDiscord}
         >
           <SvgIcon type="mdi" path={discord} size={32}></SvgIcon>
-        </button>
+        </a>
       </div>
     </div>
   </footer>
