@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
+  import type { attributes } from "../+page";
   import { _tagline } from "../+page";
 
   let { data } = $props();
 
-  const tagline = $derived(`${data.page.attributes.title} | ${_tagline}`);
+  const pageAttributes: attributes = data.page.attributes;
+  const tagline = $derived(`${pageAttributes.title} | ${_tagline}`);
 </script>
 
 <svelte:head>
@@ -19,5 +21,10 @@
 </svelte:head>
 
 <a href="/blog">Go back</a>
+<h1 class="h0" style="margin-top: 0.5em;">{pageAttributes.title}</h1>
+<p class="sub-h0">
+  posted: {new Date(pageAttributes.date).toLocaleDateString()}
+</p>
+
 
 {@html data.page.html}

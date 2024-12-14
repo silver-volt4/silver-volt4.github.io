@@ -82,7 +82,7 @@
     text-decoration: unset;
     margin: 0;
     max-width: 1000px;
-    padding: 0 24px;
+    padding: 32px 24px;
     margin: 0 auto;
   }
 
@@ -109,15 +109,10 @@
     margin-bottom: 32px;
     padding-bottom: 0;
     background-color: $darkBack;
-    padding-top: 32px;
 
     .vbox {
       display: flex;
       flex-direction: column;
-    }
-
-    a.backlink {
-      margin-bottom: 32px;
     }
 
     nav {
@@ -187,12 +182,9 @@
 
   @media screen and (max-width: 600px) {
     header {
-      padding-top: 16px;
-
       a.backlink {
         gap: 16px;
-        padding: 0 16px;
-        margin-bottom: 12px;
+        padding: 32px 16px;
       }
 
       h1 {
