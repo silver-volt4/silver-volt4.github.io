@@ -83,12 +83,6 @@
 
   $darkBack: color.adjust(constants.$dark, $lightness: 3%);
 
-  @media screen and (max-width: 600px) {
-    header {
-      flex-direction: column;
-    }
-  }
-
   a.backlink {
     color: unset;
     text-decoration: unset;
@@ -194,6 +188,26 @@
       display: inline;
       padding: 0;
       color: constants.$light;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    header {
+      padding-top: 16px;
+
+      a.backlink {
+        gap: 16px;
+        padding: 0 16px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      img.pfp {
+        height: 96px;
+      }
     }
   }
 </style>
