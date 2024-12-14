@@ -7,7 +7,9 @@
   import Yamb from "$lib/assets/images/projects/yamb.png";
 </script>
 
-<h1 class="heading">Projects</h1>
+<h1 class="heading">
+  Projects
+</h1>
 <div class="section">
   <div class="gridlet">
     <Project

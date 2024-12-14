@@ -32,7 +32,7 @@
   .skill {
     display: inline-flex;
     flex-direction: column;
-    width: 240px;
+    width: 270px;
     border-radius: 4px;
     box-sizing: content-box;
     background: constants.$darkBack;
@@ -57,7 +57,7 @@
       font-size: 18px;
       padding: 4px 0;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       line-height: 20px;
       display: flex;
       flex: 1;

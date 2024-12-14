@@ -18,10 +18,15 @@
     </p>
     <p>
         There are little people left that still carry their 3DS around. If you
-        want to, you can follow me on my <b>Juxtaposition</b> (<a href="https://pretendo.network/" target="_blank">Pretendo</a> Miiverse) profile:
-        <a href="https://juxt.pretendo.network/users/1319380424" target="_blank">
-            Dan @silver_volt4
+        want to get in touch with me, you can
+        <a
+            href="https://juxt.pretendo.network/users/1319380424"
+            target="_blank"
+        >
+            follow me on <b>Juxtaposition</b>
         </a>
+        (<a href="https://pretendo.network/" target="_blank">Pretendo</a>'s
+        replacement for Miiverse)
     </p>
     <p>Additionally, my Discord username is at the bottom of this page.</p>
     <p>Have a nice day!</p>
