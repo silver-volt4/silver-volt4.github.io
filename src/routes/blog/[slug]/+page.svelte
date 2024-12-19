@@ -1,23 +1,16 @@
 <script lang="ts">
+  import PageInfo from "$lib/components/PageInfo.svelte";
   import type { attributes } from "../+page";
-  import { _tagline } from "../+page";
+  import { _PAGE_TITLE } from "../+page";
 
   let { data } = $props();
 
   const pageAttributes: attributes = data.page.attributes;
-  const tagline = $derived(`${pageAttributes.title} | ${_tagline}`);
+  const PAGE_TITLE = $derived(`${pageAttributes.title} | ${_PAGE_TITLE}`);
 </script>
 
 <svelte:head>
-  <title>{tagline}</title>
-  <meta property="og:title" content={tagline} />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content={data.page.attributes.description} />
-  <meta
-    property="article:published_time"
-    content={new Date(data.page.attributes.date).toISOString()}
-  />
-  <meta name="theme-color" content="#ffffea" />
+  <PageInfo title={PAGE_TITLE} description={pageAttributes.description} />
 </svelte:head>
 
 <a href="/blog">Go back</a>
@@ -25,6 +18,5 @@
 <p class="sub-h0">
   posted: {new Date(pageAttributes.date).toLocaleDateString()}
 </p>
-
 
 {@html data.page.html}

@@ -5,7 +5,7 @@ export interface attributes {
     tags: string[]
 };
 
-export const _tagline = "Daniel's blog"
+export const _PAGE_TITLE = "Daniel's blog"
 
 // horrible performance, but the whole website is pre-rendered anyway /shrug
 export async function load({ params }) {
