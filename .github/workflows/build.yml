@@ -11,6 +11,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Configure GitHub Pages
+        id: configuration
+        uses: actions/configure-pages@v5
+
       # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
       # - name: Install pnpm
       #   uses: pnpm/action-setup@v3
@@ -28,6 +32,7 @@ jobs:
 
       - name: build
         env:
+          BASE_URL: ${{ steps.configuration.outputs.base_url }}
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm run build
