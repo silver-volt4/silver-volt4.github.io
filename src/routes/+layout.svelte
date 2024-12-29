@@ -7,6 +7,8 @@
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
   import discord from "$lib/assets/icons/discord.svgpath?raw";
 
+  import { _PAGE_SUBTITLE, _PAGE_TITLE } from "./+layout";
+
   const LINKS = {
     "/": "About",
     "/blog/": "Blog",
@@ -22,8 +24,8 @@
         alt="Avatar"
       />
       <div class="vbox">
-        <h1>Daniel's landfill of weird things</h1>
-        <em>I make stuff. Some stupid, some less so.</em>
+        <h1>{_PAGE_TITLE}</h1>
+        <em>{_PAGE_SUBTITLE}</em>
       </div>
     </a>
     <nav class="ps">

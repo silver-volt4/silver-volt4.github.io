@@ -1,10 +1,11 @@
 <script>
-  import { _tagline } from "./+page";
+  import PageInfo from "$lib/components/PageInfo.svelte";
+  import { _PAGE_TITLE } from "./+page";
   export let data;
 </script>
 
 <svelte:head>
-  <title>{_tagline}</title>
+  <PageInfo title={_PAGE_TITLE} />
 </svelte:head>
 
 <div class="posts">
