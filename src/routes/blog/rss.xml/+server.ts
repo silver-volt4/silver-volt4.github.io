@@ -1,12 +1,34 @@
 export const prerender = true
 import { json } from '@sveltejs/kit';
+import { create } from "xmlbuilder2";
+import { load, _tagline } from "./../+page.ts";
 
-const atomBase = '<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"></feed>';
+const blog = "https://silver-volt4.github.io/blog/"
 
 export const GET = async ({ params }) => {
-    const feed = new DOMParser().parseFromString(atomBase, "application/xml");
+    const feed = create({encoding: "utf-8"}).ele("feed", {xmlns: "http://www.w3.org/2005/Atom"});
+    const pages = (await load()).pages;
 
-    return new Response(`<?xml version="1.0" encoding="utf-8"?>
+    feed.ele("title").txt(_tagline).up();
+    feed.ele("link", {href: blog, rel: "self"}).up();
+    feed.ele("updated").txt(pages[0].attributes.date).up();
+    feed.ele("author")
+        .ele("name").txt("silver_volt4").up()
+    .up();
+
+
+    for(let entry of pages) {
+        feed.ele("entry")
+            .ele("title").txt(entry.attributes.title).up()
+            .ele("summary").txt(entry.attributes.description).up()
+            .ele("updated").txt(entry.attributes.date).up()
+            .ele("link", {href: blog + entry.slug}).up()
+    }
+
+       return new Response(
+         feed.end()
+         
+        /* `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  <title>Example Feed</title>
  <subtitle>A subtitle.</subtitle>
@@ -25,7 +47,8 @@ export const GET = async ({ params }) => {
    <updated>2003-12-13T18:30:02Z</updated>
    <summary>Some text.</summary>
  </entry>
-</feed>`, {
+</feed>` */
+, {
         headers: {
             'Content-Type': 'application/xml'
         }
