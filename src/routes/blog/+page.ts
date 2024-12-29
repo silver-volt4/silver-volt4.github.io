@@ -8,7 +8,7 @@ export interface attributes {
 export const _PAGE_TITLE = "Daniel's blog"
 
 // horrible performance, but the whole website is pre-rendered anyway /shrug
-export async function load({ params }) {
+export async function load() {
     let pages = [];
     for (let entry of Object.entries(import.meta.glob('./pages/*.md'))) {
         let slug = entry[0].split("/")[2].split(".")[0];
@@ -19,7 +19,7 @@ export async function load({ params }) {
             attributes: attributes
         });
     }
-    pages.sort((a, b) => +new Date(b.attributes.date) - +new Date(a.attributes.date) )
+    pages.sort((a, b) => +new Date(b.attributes.date) - +new Date(a.attributes.date))
     return {
         pages: pages
     }
