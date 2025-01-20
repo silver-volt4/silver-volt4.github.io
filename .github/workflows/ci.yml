@@ -24,6 +24,7 @@ jobs:
 
   svelte-check:
     name: Check codebase using svelte-check
+    needs: prettier
     runs-on: ubuntu-latest
 
     steps:
