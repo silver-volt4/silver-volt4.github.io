@@ -23,3 +23,34 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write .
+
+  svelte-check:
+    name: Check codebase using svelte-check
+    runs-on: ubuntu-latest
+
+    steps:
+        prettier:
+    name: Format with Prettier.JS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # Make sure the actual branch is checked out when running on pull requests
+          ref: ${{ github.head_ref }}
+      
+            - name: Checkout
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run svelte-check
+        run: |
+          npm run check
