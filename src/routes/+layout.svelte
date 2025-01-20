@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href="./profile-image.png" />
+  <link rel="icon" href="/profile-image.png" />
 </svelte:head>
 
 <main>
@@ -24,7 +24,7 @@
     <a href="/" class="backlink psm">
       <img
         class="pfp"
-        src="./profile-image.png"
+        src="/profile-image.png"
         alt="Avatar"
       />
       <div class="vbox">
