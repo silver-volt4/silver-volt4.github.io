@@ -1,11 +1,14 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: "main"
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
 
 jobs:
   build_site:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -14,12 +17,6 @@ jobs:
       - name: Configure GitHub Pages
         id: configuration
         uses: actions/configure-pages@v5
-
-      # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
-      # - name: Install pnpm
-      #   uses: pnpm/action-setup@v3
-      #   with:
-      #     version: 8
 
       - name: Install Node.js
         uses: actions/setup-node@v4
