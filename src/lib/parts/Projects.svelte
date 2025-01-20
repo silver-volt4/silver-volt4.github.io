@@ -20,7 +20,7 @@
       variant="dark"
       additionalClass="end"
     >
-      A simple Discord bot all about a fictional hedgehog!
+      A simple Discord bot about a fictional hedgehog.
     </Project>
     <Project
       src={PuzzlePrism}
@@ -30,7 +30,7 @@
       variant="light"
       additionalClass="top"
     >
-      A VR puzzle game made in Godot that I made as my High School final
+      A VR puzzle game made in Godot that I made as my high school final
       project.
     </Project>
     <Project
@@ -41,7 +41,7 @@
       variant="light"
       additionalClass="top"
     >
-      A tabletop game for two players closely resembling the "Royal Game of Ur".
+      A tabletop game for two players similar to the <i>Royal Game of Ur</i>.
     </Project>
     <Project
       src={Yamb}
@@ -51,7 +51,7 @@
       variant="light"
       additionalClass="top"
     >
-      A mobile app for the Bosnian dice game Yamb.
+      A web app companion and calculator for the dice game Yamb.
     </Project>
   </div>
 </div>

@@ -14,6 +14,8 @@
   import godotLogo from "$lib/assets/icons/godot.svgpath?raw";
   import netteLogo from "$lib/assets/icons/nette.svgpath?raw";
   import phpLogo from "$lib/assets/icons/php.svgpath?raw";
+  import dartLogo from "$lib/assets/icons/dart.svgpath?raw";
+  import flutterLogo from "$lib/assets/icons/flutter.svgpath?raw";
 </script>
 
 <h1 class="heading">
@@ -51,6 +53,12 @@
       confidence={0.4}
     />
     <Skill
+      color="#29b6f6"
+      icon={dartLogo}
+      name="Dart"
+      confidence={0.35}
+    />
+    <Skill
       color="#bc74d9"
       icon={mdiLanguageCsharp}
       name="C#"
@@ -73,6 +81,12 @@
       icon={netteLogo}
       name="Nette Framework"
       confidence={0.7}
+    />
+    <Skill
+      color="#29b6f6"
+      icon={flutterLogo}
+      name="Flutter"
+      confidence={0.2}
     />
   </div>
   <h2>
