@@ -34,6 +34,7 @@ jobs:
           BASE_URL: ${{ steps.configuration.outputs.base_url }}
           BASE_PATH: "/${{ github.event.repository.name }}"
         run: |
+          cd static && wget "https://avatars.githubusercontent.com/u/35656715" -O pfp.png
           npm run build
 
       - name: Upload Artifacts

@@ -15,12 +15,16 @@
   };
 </script>
 
+<svelte:head>
+  <link rel="icon" href="./profile-image.png" />
+</svelte:head>
+
 <main>
   <header>
     <a href="/" class="backlink psm">
       <img
         class="pfp"
-        src="https://avatars.githubusercontent.com/u/35656715"
+        src="./profile-image.png"
         alt="Avatar"
       />
       <div class="vbox">
@@ -172,8 +176,7 @@
   .links {
     display: flex;
     gap: 8px;
-    a,
-    button {
+    a {
       background: none;
       border: none;
       display: inline;
