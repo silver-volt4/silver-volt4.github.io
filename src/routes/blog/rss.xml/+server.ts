@@ -18,8 +18,7 @@ export const GET = async ({ url, params }) => {
 
   for (let entry of pages) {
     feed
-      .ele("entry")
-      .ele("id")
+      .ele("entry").ele("id")
       .txt(entry.slug)
       .up()
       .ele("title")
