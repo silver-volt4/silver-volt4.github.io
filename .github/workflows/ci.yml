@@ -4,7 +4,8 @@ name: Continuous Integration
 on:
   pull_request:
   push:
-
+    branches:
+      - main
 jobs:
   prettier:
     name: Format with Prettier.JS
