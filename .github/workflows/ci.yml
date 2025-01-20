@@ -38,8 +38,6 @@ jobs:
         with:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-      
-            - name: Checkout
 
       - name: Install Node.js
         uses: actions/setup-node@v4
