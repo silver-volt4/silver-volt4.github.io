@@ -1,0 +1,13 @@
+{
+    "welcome": "A wild website appears! You appear to have landed at my website. Welcome!",
+    "whoami": "Hi, I'm Daniel, a programmer and CS student at FIT CTU from the Czech Republic.",
+    "whatido": "I mostly develop for the web, both front-end and back-end. I've also toyed around with mobile app development before.",
+    "mymission": "Simply put; I like creating things that ordinary people can interact with and find useful.",
+    "techstack": {
+        "title": "Tech stack",
+        "langs": "Programming languages",
+        "frameworks": "Frameworks/Engines",
+        "othertools": "Other tools"
+    },
+    "projects": "Projects"
+}

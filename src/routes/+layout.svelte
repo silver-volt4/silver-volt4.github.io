@@ -7,11 +7,11 @@
   import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
   import discord from "$lib/assets/icons/discord.svgpath?raw";
 
-  import { _PAGE_SUBTITLE, _PAGE_TITLE } from "./+layout";
+  import t from "$lib/i18n";
 
   const LINKS = {
-    "/": "About",
-    "/blog/": "Blog",
+    "/": $t("common.page-about"),
+    "/blog/": $t("common.page-blog"),
   };
 </script>
 
@@ -22,14 +22,10 @@
 <main>
   <header>
     <a href="/" class="backlink psm">
-      <img
-        class="pfp"
-        src="/profile-image.png"
-        alt="Avatar"
-      />
+      <img class="pfp" src="/profile-image.png" alt="Avatar" />
       <div class="vbox">
-        <h1>{_PAGE_TITLE}</h1>
-        <em>{_PAGE_SUBTITLE}</em>
+        <h1>{$t("common.title")}</h1>
+        <em>{$t("common.subtitle")}</em>
       </div>
     </a>
     <nav class="ps">
@@ -103,6 +99,9 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
 
     .content {
       flex-grow: 1;
@@ -115,6 +114,8 @@
     margin-bottom: 32px;
     padding-bottom: 0;
     background-color: $darkBack;
+    position: sticky;
+    top: 0;
 
     .vbox {
       display: flex;

@@ -2,10 +2,19 @@
   /* @ts-ignore */
   import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
 
-  export let color: string;
-  export let icon: any;
-  export let name: string;
-  export let confidence: number;
+  interface Props {
+    color: string;
+    icon: any;
+    name: string;
+    confidence: number;
+  }
+
+  let {
+    color,
+    icon,
+    name,
+    confidence
+  }: Props = $props();
 </script>
 
 <div class="skill" style:--color={color}>

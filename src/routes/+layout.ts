@@ -1,7 +1,13 @@
+import { loadTranslations } from '$lib/i18n';
 import "$lib/style/app.scss";
 
 export const prerender = true;
 export const trailingSlash = "always";
 
-export const _PAGE_TITLE = "Daniel's landfill of weird things";
-export const _PAGE_SUBTITLE = "I make things. Sometimes silly, sometimes not.";
+/** @type {import('@sveltejs/kit').Load} */
+export const load = async ({ url }) => {
+    const { pathname } = url;
+    const initLocale = 'cs';
+    await loadTranslations(initLocale, pathname);
+    return {};
+}

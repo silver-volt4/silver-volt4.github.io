@@ -1,29 +1,28 @@
 <script lang="ts">
   import Skills from "$lib/parts/Skills.svelte";
   import Projects from "$lib/parts/Projects.svelte";
-  import Czechia from "$lib/components/Czechia.svelte";
   import PageInfo from "$lib/components/PageInfo.svelte";
-  import { _PAGE_SUBTITLE, _PAGE_TITLE } from "./+layout";
+  import t, { locale } from "$lib/i18n";
 </script>
 
 <svelte:head>
-  <PageInfo title={_PAGE_TITLE} description={_PAGE_SUBTITLE} />
+  <PageInfo title={$t("common.title")} description={$t("common.subtitle")} />
 </svelte:head>
 
 <div>
   <p style="margin-top:0">
-    A wild website appears! You appear to have landed at my website. Welcome!
+    {$t("homepage.welcome")}
   </p>
-  <h1 class="heading">About me</h1>
+  <h1 class="heading">
+    {$t("common.page-about")}
+  </h1>
   <p>
-    Hi, I'm Daniel, a programmer and CS student @ FIT CTU from Czechia <Czechia
-    />.
+    {$t("homepage.whoami")}
   </p>
   <p>
-    I mostly develop for the web, both on the front-end and back-end. I've also
-    toyed around with mobile app development before.<br />
-    Simply put; I like creating things that ordinary people can interact with and
-    find useful.
+    {$t("homepage.whatido")}
+    <br />
+    {$t("homepage.mymission")}
   </p>
 </div>
 
