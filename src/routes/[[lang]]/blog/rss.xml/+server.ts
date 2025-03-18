@@ -1,7 +1,7 @@
 export const prerender = true;
 import { json } from "@sveltejs/kit";
 import { create } from "xmlbuilder2";
-import { load, _PAGE_TITLE } from "./../+page";
+import { load, _PAGE_TITLE } from "../+page";
 
 export const GET = async ({ url, params }) => {
   const base_url = (process.env.BASE_URL ?? url.origin) + "/blog/";

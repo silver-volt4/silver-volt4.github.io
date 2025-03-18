@@ -16,16 +16,15 @@
   import phpLogo from "$lib/assets/icons/php.svgpath?raw";
   import dartLogo from "$lib/assets/icons/dart.svgpath?raw";
   import flutterLogo from "$lib/assets/icons/flutter.svgpath?raw";
+  import t from "$lib/i18n";
 </script>
 
 <h1 class="heading">
-  Tech stack
+  {$t("homepage.techstack.title")}
 </h1>
 
-<div class="section">
-  <h2>
-    Programming languages
-  </h2>
+<div class="section" style:--gr-width="270px">
+  <h2>{$t("homepage.techstack.langs")}</h2>
   <div class="gridlet">
     <Skill
       color="#f5de19"
@@ -46,18 +45,8 @@
       name="Python"
       confidence={0.5}
     />
-    <Skill
-      color="#b4283a"
-      icon={mdiDatabase}
-      name="SQL"
-      confidence={0.4}
-    />
-    <Skill
-      color="#29b6f6"
-      icon={dartLogo}
-      name="Dart"
-      confidence={0.35}
-    />
+    <Skill color="#b4283a" icon={mdiDatabase} name="SQL" confidence={0.4} />
+    <Skill color="#29b6f6" icon={dartLogo} name="Dart" confidence={0.35} />
     <Skill
       color="#bc74d9"
       icon={mdiLanguageCsharp}
@@ -65,9 +54,7 @@
       confidence={0.3}
     />
   </div>
-  <h2>
-    Frameworks/Engines
-  </h2>
+  <h2>{$t("homepage.techstack.frameworks")}</h2>
   <div class="gridlet">
     <Skill color="#ff3e00" icon={svelteLogo} name="Svelte" confidence={0.9} />
     <Skill
@@ -82,16 +69,9 @@
       name="Nette Framework"
       confidence={0.7}
     />
-    <Skill
-      color="#29b6f6"
-      icon={flutterLogo}
-      name="Flutter"
-      confidence={0.2}
-    />
+    <Skill color="#29b6f6" icon={flutterLogo} name="Flutter" confidence={0.2} />
   </div>
-  <h2>
-    Other tools
-  </h2>
+  <h2> {$t("homepage.techstack.othertools")}</h2>
   <div class="gridlet">
     <Skill color="#ffbb00" icon={mdiLinux} name="Linux" confidence={0.8} />
     <Skill color="#4da925" icon={mdiBash} name="Bash" confidence={0.4} />

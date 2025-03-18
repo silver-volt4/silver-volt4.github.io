@@ -1,10 +1,26 @@
 <script lang="ts">
-  export let src: string;
-  export let href: string;
-  export let color: string;
-  export let name: string;
-  export let variant: "light" | "dark" = "light";
-  export let additionalClass: string = "";
+  export interface ProjectAttrs {
+    background: string;
+    href: string;
+    color: string;
+    name: string;
+    variant?: "light" | "dark";
+    additionalClass?: string;
+  }
+
+  interface Props extends ProjectAttrs {
+    children?: import("svelte").Snippet;
+  }
+
+  let {
+    background,
+    href,
+    color,
+    name,
+    variant = "light",
+    additionalClass = "",
+    children,
+  }: Props = $props();
 </script>
 
 <a
@@ -13,14 +29,14 @@
   class="project {additionalClass} {variant}"
   target="_blank"
 >
-  <div class="thumbnail" style="background-image:url({src})">
+  <div class="thumbnail" style="background-image:url({background})">
     <div class="gradient"></div>
   </div>
   <div class="bottom">
     <div class="title">
       {name}
     </div>
-    <slot />
+    {@render children?.()}
   </div>
 </a>
 
@@ -30,7 +46,6 @@
   .project {
     display: block;
     text-decoration: unset;
-    width: 400px;
   }
 
   .thumbnail {
