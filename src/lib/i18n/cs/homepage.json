@@ -1,13 +1,13 @@
 {
-    "welcome": "Z temnot internetu se vynořila tajemná webovka! Vypadá to, že ses objevil*a na mých stránkách. Vítej!",
-    "whoami": "Ahoj, jsem Dan, programátor a student informatiky na FIT ČVUT.",
-    "whatido": "Většinou se věnuji webovému vývoji, frontend i backend. Taky si trochu pohrávám s vývojem mobilních aplikací.",
-    "mymission": "Jednoduše řečeno; rád tvořím věci, které by pro někoho mohly být užitečné.",
-    "techstack": {
-        "title": "Tech stack",
-        "langs": "Programovací jazyky",
-        "frameworks": "Frameworky/Enginy",
-        "othertools": "Ostatní nástroje"
-    },
-    "projects": "Projekty"
+  "welcome": "Z temnot internetu se vynořila tajemná webovka! Vypadá to, že ses objevil*a na mých stránkách. Vítej!",
+  "whoami": "Ahoj, jsem Dan, programátor a student informatiky na FIT ČVUT.",
+  "whatido": "Většinou se věnuji webovému vývoji, frontend i backend. Taky si trochu pohrávám s vývojem mobilních aplikací.",
+  "mymission": "Jednoduše řečeno; rád tvořím věci, které by pro někoho mohly být užitečné.",
+  "techstack": {
+    "title": "Tech stack",
+    "langs": "Programovací jazyky",
+    "frameworks": "Frameworky/Enginy",
+    "othertools": "Ostatní nástroje"
+  },
+  "projects": "Projekty"
 }
