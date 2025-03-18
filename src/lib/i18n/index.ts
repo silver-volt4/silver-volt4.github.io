@@ -12,7 +12,6 @@ function buildLanguageSection(lang: string) {
         {
             locale: lang,
             key: 'homepage',
-            routes: ['/'],
             loader: async () => (
                 await import(`./${lang}/homepage.json`)
             ).default,
@@ -20,7 +19,6 @@ function buildLanguageSection(lang: string) {
         {
             locale: lang,
             key: 'projects',
-            routes: ['/'],
             loader: async () => (
                 await import(`./${lang}/projects.json`)
             ).default,

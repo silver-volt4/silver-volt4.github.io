@@ -49,7 +49,7 @@
   {$t("homepage.projects")}
 </h1>
 <div class="section">
-  <div class="gridlet">
+  <div class="gridlet" style:--gr-width="350px">
     {#each Object.entries(PROJECTS) as [key, project] (key)}
       <Project {...project}>
         {@html $t("projects." + key)}

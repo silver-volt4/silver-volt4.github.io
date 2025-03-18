@@ -1,6 +1,11 @@
 {
     "title": "Daniel's landfill of weird things",
     "subtitle": "I make things. Sometimes silly, sometimes not.",
+    "links": "My other weird stuff",
     "page-about": "About me",
-    "page-blog": "Blog"
+    "page-blog": "A very sporadically updated blog",
+    "contact": "Where to find me",
+    "contact-github": "GitHub",
+    "contact-githubalt": "GitHub (alt)",
+    "contact-discord": "Discord"
 }

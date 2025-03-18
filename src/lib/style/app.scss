@@ -54,29 +54,24 @@ p {
 }
 
 .gridlet {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--gr-width), 1fr));
 }
 
 .hoverable {
   transition: transform 0.1s;
+
   &:hover {
     transform: scale(1.05) rotate(-1deg);
     z-index: 2;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: constants.$mobileRes) {
   .gridlet {
-    flex-direction: column;
-
-    > * {
-      width: unset !important;
-      flex-grow: 1;
-    }
+    grid-template-columns: 1fr;
   }
-
   .ps {
     padding: 0 16px;
   }
@@ -87,6 +82,7 @@ p {
     opacity: 0;
     top: -5px;
   }
+
   to {
     opacity: 1;
     top: -10px;

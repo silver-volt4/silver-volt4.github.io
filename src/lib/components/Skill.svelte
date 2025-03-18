@@ -41,7 +41,6 @@
   .skill {
     display: inline-flex;
     flex-direction: column;
-    width: 270px;
     border-radius: 4px;
     box-sizing: content-box;
     background: constants.$darkBack;

@@ -46,7 +46,6 @@
   .project {
     display: block;
     text-decoration: unset;
-    width: 400px;
   }
 
   .thumbnail {

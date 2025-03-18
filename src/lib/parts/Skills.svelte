@@ -23,7 +23,7 @@
   {$t("homepage.techstack.title")}
 </h1>
 
-<div class="section">
+<div class="section" style:--gr-width="270px">
   <h2>{$t("homepage.techstack.langs")}</h2>
   <div class="gridlet">
     <Skill
