@@ -1,6 +1,7 @@
 ---
 title: A hedgehog and his blog
 description: Guess I'm doing blogging now.
+lang: en
 date: 2024-10-26
 ---
 

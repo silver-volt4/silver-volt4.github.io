@@ -1,16 +1,19 @@
-<script>
+<script lang="ts">
   import PageInfo from "$lib/components/PageInfo.svelte";
-  import { _PAGE_TITLE } from "./+page";
+  import t from "$lib/i18n/index";
   export let data;
+  
+  import {buildCurrentLangUrl} from "$lib/i18n/util.svelte";
+  
 </script>
 
 <svelte:head>
-  <PageInfo title={_PAGE_TITLE} />
+  <PageInfo title={$t("blog.title")} />
 </svelte:head>
 
 <div class="posts">
   {#each data.pages as page}
-    <a class="default post" href="/blog/{page.slug}">
+    <a class="default post" href={buildCurrentLangUrl("/blog/" + page.slug)}>
       <p class="title">
         {page.attributes.title}
         <i class="date">

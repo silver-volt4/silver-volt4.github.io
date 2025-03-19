@@ -1,7 +1,8 @@
 export const prerender = true;
-import { json } from "@sveltejs/kit";
+
 import { create } from "xmlbuilder2";
-import { load, _PAGE_TITLE } from "../+page";
+import t from "$lib/i18n";
+import { getPages } from "../pages";
 
 export const GET = async ({ url, params }) => {
   const base_url = (process.env.BASE_URL ?? url.origin) + "/blog/";
@@ -9,9 +10,10 @@ export const GET = async ({ url, params }) => {
   const feed = create({ encoding: "utf-8" }).ele("feed", {
     xmlns: "http://www.w3.org/2005/Atom",
   });
-  const pages = (await load()).pages;
 
-  feed.ele("title").txt(_PAGE_TITLE).up();
+  const pages = await getPages(params.lang);
+
+  feed.ele("title").txt(t.get("blog.title")).up();
   feed.ele("link", { href: base_url, rel: "self" }).up();
   feed.ele("updated").txt(pages[0].attributes.date).up();
   feed.ele("author").ele("name").txt("silver_volt4").up().up();

@@ -17,6 +17,11 @@ function buildLanguageSection(lang: string) {
       key: "projects",
       loader: async () => (await import(`./${lang}/projects.json`)).default,
     },
+    {
+      locale: lang,
+      key: "blog",
+      loader: async () => (await import(`./${lang}/blog.json`)).default,
+    },
   ];
 }
 

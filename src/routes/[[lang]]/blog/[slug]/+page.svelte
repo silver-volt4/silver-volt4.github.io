@@ -1,12 +1,12 @@
 <script lang="ts">
   import PageInfo from "$lib/components/PageInfo.svelte";
-  import type { attributes } from "../+page";
-  import { _PAGE_TITLE } from "../+page";
+  import t from "$lib/i18n";
+  import type { attributes } from "../pages";
 
   let { data } = $props();
 
   const pageAttributes: attributes = data.page.attributes;
-  const PAGE_TITLE = $derived(`${pageAttributes.title} | ${_PAGE_TITLE}`);
+  const PAGE_TITLE = $derived(`${pageAttributes.title} | ${$t("blog.title")}`);
 </script>
 
 <svelte:head>
