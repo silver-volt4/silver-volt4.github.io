@@ -3,6 +3,7 @@ export const prerender = true;
 import { create } from "xmlbuilder2";
 import t from "$lib/i18n";
 import { getPages } from "../pages";
+import { buildLangUrl } from "$lib/i18n/util.svelte";
 
 export const GET = async ({ url, params }) => {
   const base_url = (process.env.BASE_URL ?? url.origin) + "/blog/";
@@ -33,7 +34,7 @@ export const GET = async ({ url, params }) => {
       .ele("updated")
       .txt(entry.attributes.date)
       .up()
-      .ele("link", { href: "/blog/" + entry.slug })
+      .ele("link", { href: buildLangUrl("/blog/" + entry.slug, params.lang) })
       .up();
   }
 

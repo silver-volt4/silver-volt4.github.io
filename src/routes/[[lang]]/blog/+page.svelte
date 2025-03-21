@@ -1,10 +1,17 @@
 <script lang="ts">
+  /* @ts-ignore */
+  import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
+  import { mdiRss } from "@mdi/js";
+  import { buildCurrentLangUrl } from "$lib/i18n/util.svelte";
   import PageInfo from "$lib/components/PageInfo.svelte";
   import t from "$lib/i18n/index";
-  export let data;
-  
-  import {buildCurrentLangUrl} from "$lib/i18n/util.svelte";
-  
+  import type { Page } from "./pages";
+
+  interface Props {
+    pages: Page[];
+  }
+
+  let { data }: { data: Props } = $props();
 </script>
 
 <svelte:head>
@@ -23,11 +30,28 @@
       <p class="description">{page.attributes.description}</p>
     </a>
   {/each}
+
+  <a class="rss" href={buildCurrentLangUrl("/blog/rss.xml")} target="_blank">
+    <SvgIcon type="mdi" path={mdiRss} size={24} />
+    <span> RSS feed </span>
+  </a>
 </div>
 
 <style lang="scss">
   @use "$lib/style/constants.scss";
   @use "sass:color";
+
+  .rss {
+    display: inline-flex;
+    padding: 8px 16px;
+    background-color: orange;
+    color: constants.$dark;
+    text-decoration: none;
+    align-self: center;
+    border-radius: 100px;
+    align-items: center;
+    gap: 8px;
+  }
 
   .posts {
     display: flex;

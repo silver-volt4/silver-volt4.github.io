@@ -1,12 +1,5 @@
 <script lang="ts">
   /* @ts-ignore */
-  import SvgIcon from "@jamescoyle/svelte-icon/src/svg-icon.svelte";
-  import { page } from "$app/state";
-
-  import { mdiGithub } from "@mdi/js";
-  import schoolGithub from "$lib/assets/icons/schoolGithub.svgpath?raw";
-  import discord from "$lib/assets/icons/discord.svgpath?raw";
-
   import langCS from "$lib/i18n/cs/icon.svg";
   import langEN from "$lib/i18n/en/icon.svg";
 
@@ -21,14 +14,16 @@
 <main>
   <header>
     <div class="topmost ps">
-      <a href={changeLangUrl("cs")}>
-        Czech
-        <img src={langCS} alt="🇨🇿" />
-      </a>
-      <a href={changeLangUrl()}>
-        English
-        <img src={langEN} alt="🇬🇧" />
-      </a>
+      <div class="lang">
+        <a href={changeLangUrl("cs")}>
+          Czech
+          <img src={langCS} alt="🇨🇿" />
+        </a>
+        <a href={changeLangUrl()}>
+          English
+          <img src={langEN} alt="🇬🇧" />
+        </a>
+      </div>
     </div>
     <a href={buildCurrentLangUrl("/")} class="backlink psm">
       <img class="pfp" src="/profile-image.png" alt="Avatar" />
@@ -95,6 +90,10 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    
+    .lang {
+      transform: translateY(4px);
+    }
 
     a {
       color: constants.$light;
@@ -145,35 +144,6 @@
     background-color: $darkBack;
     position: sticky;
     top: 0;
-
-    nav {
-      display: flex;
-      padding: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-
-      a {
-        flex: 1;
-        display: block;
-        font-size: 1.25em;
-        color: constants.$light;
-        text-decoration: none;
-        padding: 4px;
-        text-align: center;
-
-        transition: background-color 0.1s;
-
-        &:hover,
-        &.selected:hover {
-          background-color: color.adjust(constants.$light, $alpha: -0.8);
-        }
-
-        &.selected {
-          background-color: color.adjust(constants.$light, $alpha: -0.9);
-          border-bottom: solid 1px constants.$light;
-        }
-      }
-    }
 
     h1 {
       display: inline-block;

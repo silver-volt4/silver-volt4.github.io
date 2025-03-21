@@ -28,7 +28,7 @@
     },
     hexalema: {
       background: Hexalema,
-      href: "https://sykdan.github.io/hexalema",
+      href: "https://hexalema.silver-volt4.cz",
       color: "#980691",
       name: "Hexalema",
       variant: "light",
@@ -36,7 +36,7 @@
     },
     yamb: {
       background: Yamb,
-      href: "https://sykdan.github.io/kostky",
+      href: "https://yamb.silver-volt4.cz",
       color: "#081d77",
       name: "Yamb",
       variant: "light",

@@ -20,7 +20,7 @@
 <div class="skill" style:--color={color}>
   <div class="title">
     <div class="icon">
-      <SvgIcon type="mdi" path={icon} size={32}></SvgIcon>
+      <SvgIcon type="mdi" path={icon} size={32}/>
     </div>
     <span class="name" style:color>
       {name}
