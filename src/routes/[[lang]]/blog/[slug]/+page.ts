@@ -10,7 +10,7 @@ export function entries() {
 }
 
 export async function load({ params }) {
-  let page = await import(`../pages/${params.slug}.md`)
+  let page = await import(`../pages/${params.slug}.md`);
   return {
     page: page,
   };

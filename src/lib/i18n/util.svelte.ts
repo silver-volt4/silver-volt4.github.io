@@ -3,7 +3,7 @@ import { page } from "$app/state";
 function changeLangUrl(lang?: string) {
   let url: string = page.url.pathname;
   if (page.params.lang) {
-    url = url.replace(`/${page.params.lang}`, "")
+    url = url.replace(`/${page.params.lang}`, "");
   }
   return buildLangUrl(url, lang);
 }
