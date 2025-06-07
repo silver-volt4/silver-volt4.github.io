@@ -5,6 +5,7 @@
     mdiLanguageJavascript,
     mdiLanguageTypescript,
     mdiLanguageCsharp,
+    mdiLanguageCpp,
     mdiLinux,
     mdiBash,
     mdiDatabase,
@@ -52,6 +53,12 @@
       icon={mdiLanguageCsharp}
       name="C#"
       confidence={0.3}
+    />
+    <Skill
+      color="#6a9dd3"
+      icon={mdiLanguageCpp}
+      name="C/C++"
+      confidence={0.2}
     />
   </div>
   <h2>{$t("homepage.techstack.frameworks")}</h2>

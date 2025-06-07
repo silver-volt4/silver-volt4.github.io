@@ -6,10 +6,19 @@
   import PuzzlePrism from "$lib/assets/images/projects/puzzleprism.png";
   import Hexalema from "$lib/assets/images/projects/hexalema.png";
   import Yamb from "$lib/assets/images/projects/yamb.png";
+  import SwapdoodleRevival from "$lib/assets/images/projects/swapdoodlerevival.png";
 
   import t from "$lib/i18n";
 
   const PROJECTS: { [key: string]: ProjectAttrs } = {
+    swapdoodlerevival: {
+      background: SwapdoodleRevival,
+      href: "https://SwapdoodleRevival.github.io",
+      color: "#f2e7cd",
+      name: "Swapdoodle Revival",
+      variant: "dark",
+      additionalClass: "end",
+    },
     silverbot: {
       background: SilverBot,
       href: "https://github.com/Silver-Volt4/SilverBot",
