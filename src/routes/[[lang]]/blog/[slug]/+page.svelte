@@ -29,7 +29,9 @@
   {$t("blog.posted")}: {new Date(pageAttributes.date).toLocaleDateString()}
 </p>
 
-{@html data.page.html}
+<article class="md">
+  {@html data.page.html}
+</article>
 
 <style lang="scss">
   @use "$lib/style/constants.scss";
@@ -44,5 +46,9 @@
     border-radius: 4px;
     align-items: center;
     gap: 8px;
+  }
+
+  article.md :global(img) {
+    max-width: 100%;
   }
 </style>
