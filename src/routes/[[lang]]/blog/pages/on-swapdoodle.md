@@ -2,7 +2,7 @@
 title: A few words on Swapdoodle
 description: I never thought we'd get this far.
 lang: en
-date: 2025-06-07
+date: 2025-06-07 21:31:00
 ---
 
 I don't remember when we got the idea nor who came up with it.

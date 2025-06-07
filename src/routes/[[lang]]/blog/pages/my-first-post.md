@@ -2,7 +2,7 @@
 title: A hedgehog and his blog
 description: Guess I'm doing blogging now.
 lang: en
-date: 2024-10-26
+date: 2024-10-26 19:16:00
 ---
 
 # Well, how to start?
