@@ -18,20 +18,25 @@
   <PageInfo title={PAGE_TITLE} description={pageAttributes.description} />
 </svelte:head>
 
-<a class="back" href={buildCurrentLangUrl("/blog")}>
-  <SvgIcon type="mdi" path={Back} size={24} />
-  <span>
-    {$t("blog.back")}
-  </span>
-</a>
-<h1 class="h0" style="margin-top: 0.5em;">{pageAttributes.title}</h1>
-<p class="sub-h0">
-  {$t("blog.posted")}: {new Date(pageAttributes.date).toLocaleDateString()}
-</p>
+{#snippet backButton()}
+  <a class="back" href={buildCurrentLangUrl("/blog")}>
+    <SvgIcon type="mdi" path={Back} size={24} />
+    <span>
+      {$t("blog.back")}
+    </span>
+  </a>
+{/snippet}
 
+{@render backButton()}
 <article class="md">
+  <h1 class="h0" style="margin-top: 0.5em;">{pageAttributes.title}</h1>
+  <p class="sub-h0">
+    {$t("blog.posted")}: {new Date(pageAttributes.date).toLocaleDateString()}
+  </p>
+
   {@html data.page.html}
 </article>
+{@render backButton()}
 
 <style lang="scss">
   @use "$lib/style/constants.scss";

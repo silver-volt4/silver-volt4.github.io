@@ -26,5 +26,5 @@
   </p>
 </div>
 
-<Skills />
 <Projects />
+<Skills />

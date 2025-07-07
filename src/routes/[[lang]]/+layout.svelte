@@ -11,71 +11,98 @@
   <link rel="icon" href="/profile-image.png" />
 </svelte:head>
 
-<main>
-  <header>
-    <div class="topmost ps">
-      <div class="lang">
-        <a href={changeLangUrl("cs")}>
-          Czech
-          <img src={langCS} alt="🇨🇿" />
-        </a>
-        <a href={changeLangUrl()}>
-          English
-          <img src={langEN} alt="🇬🇧" />
-        </a>
-      </div>
+<header>
+  <div class="languages">
+    <div class="lang">
+      <a href={changeLangUrl()}>
+        <img src={langEN} alt="🇬🇧" title="Englush" />
+      </a>
+      <a href={changeLangUrl("cs")}>
+        <img src={langCS} alt="🇨🇿" title="Czech" />
+      </a>
     </div>
-    <a href={buildCurrentLangUrl("/")} class="backlink psm">
-      <img class="pfp" src="/profile-image.png" alt="Avatar" />
-      <div class="vbox">
-        <h1>{$t("common.title")}</h1>
-        <em>{$t("common.subtitle")}</em>
-      </div>
-    </a>
-  </header>
-
-  <div class="content ps">
-    <slot />
   </div>
+  <a href={buildCurrentLangUrl("/")} class="backlink psm">
+    <img class="pfp" src="/profile-image.png" alt="Avatar" />
+    <div class="vbox">
+      <h1>{$t("common.title")}</h1>
+      <em>{$t("common.subtitle")}</em>
+    </div>
+  </a>
+</header>
 
-  <footer class="psm">
-    <div class="ps end">
-      <div class="signature">
-        <hr />
-        <b>silver_volt4</b>
-        <hr />
+<main class="content ps">
+  <slot />
+</main>
+
+<footer class="psm">
+  <div class="ps end">
+    <div class="signature">
+      <hr />
+      <b>silver_volt4</b>
+      <hr />
+    </div>
+    <div class="links gridlet" style:--gr-width="400px">
+      <div class="linklist">
+        <b>
+          {$t("common.links")}
+        </b>
+        <a href={buildCurrentLangUrl("/")}>
+          {$t("common.page-about")}
+        </a>
+        <a href={buildCurrentLangUrl("/blog")}>
+          {$t("common.page-blog")}
+        </a>
       </div>
-      <div class="links gridlet" style:--gr-width="400px">
-        <div class="linklist">
-          <b>
-            {$t("common.links")}
-          </b>
-          <a href={buildCurrentLangUrl("/")}>
-            {$t("common.page-about")}
-          </a>
-          <a href={buildCurrentLangUrl("/blog")}>
-            {$t("common.page-blog")}
-          </a>
-        </div>
-        <div class="linklist">
-          <b>{$t("common.contact")}</b>
-          <a href="https://github.com/silver-volt4" target="_blank">
-            <span>{$t("common.contact-github")}</span>
-          </a>
-          <a href="https://github.com/sykdan" target="_blank">
-            <span>{$t("common.contact-githubalt")}</span>
-          </a>
-          <a
-            href="https://discord.com/users/276742341031755776"
-            target="_blank"
-          >
-            <span>{$t("common.contact-discord")}</span>
-          </a>
-        </div>
+      <div class="linklist">
+        <b>{$t("common.contact")}</b>
+        <a href="https://github.com/silver-volt4" target="_blank">
+          <span>{$t("common.contact-github")}</span>
+        </a>
+        <a href="https://github.com/sykdan" target="_blank">
+          <span>{$t("common.contact-githubalt")}</span>
+        </a>
+        <a href="https://discord.com/users/276742341031755776" target="_blank">
+          <span>{$t("common.contact-discord")}</span>
+        </a>
+        <a
+          href="#"
+          onclick={(e) => {
+            e.preventDefault();
+            let a = document.createElement("a");
+            a.setAttribute(
+              "href",
+              // quirky protection against html scanning.
+              // doesnt protect against genai (i tried :c)
+              String.fromCharCode(
+                ...[-12, 8, 3, 8, -5, -53].reduce(
+                  (previous, current) => {
+                    previous.push(previous[previous.length - 1] + current);
+                    return previous;
+                  },
+                  [109],
+                ),
+              ) +
+                "gdpancake5" +
+                String.fromCharCode(
+                  ...[39, 6, -12, 8, 3, -62, 53, 12, -2].reduce(
+                    (previous, current) => {
+                      previous.push(previous[previous.length - 1] + current);
+                      return previous;
+                    },
+                    [64],
+                  ),
+                ),
+            );
+            a.click();
+          }}
+        >
+          <span>{$t("common.contact-mail")}</span>
+        </a>
       </div>
     </div>
-  </footer>
-</main>
+  </div>
+</footer>
 
 <style lang="scss">
   @use "$lib/style/constants.scss";
@@ -83,26 +110,18 @@
 
   $darkBack: color.adjust(constants.$dark, $lightness: 3%);
 
-  div.topmost {
+  div.languages {
+    z-index: 1;
     height: 32px;
-    margin-bottom: 0;
-    padding: 0;
+    position: absolute;
+    right: 8px;
+    top: 8px;
     display: flex;
     justify-content: end;
-    align-items: center;
-    
-    .lang {
-      transform: translateY(4px);
-    }
 
-    a {
-      color: constants.$light;
-      text-decoration: none;
-      margin-right: 16px;
-
-      img {
-        vertical-align: middle;
-      }
+    a img {
+      vertical-align: middle;
+      height: 32px;
     }
   }
 
@@ -112,7 +131,6 @@
     margin: 0;
     max-width: 1000px;
     padding: 32px 24px;
-    padding-top: 0 !important;
     margin: 0 auto;
   }
 
@@ -121,20 +139,6 @@
     display: flex;
     align-items: center;
     gap: 32px;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    // position: absolute;
-    // left: 0;
-    // right: 0;
-
-    .content {
-      flex-grow: 1;
-      margin-bottom: 0;
-    }
   }
 
   header {

@@ -16,10 +16,18 @@ body,
 
 body {
   background-color: constants.$dark;
-  background-attachment: fixed;
   color: constants.$light;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+main {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+/* Padded Section */
 .ps {
   width: 100%;
   max-width: 1000px;
@@ -29,6 +37,7 @@ body {
   margin-bottom: 48px;
 }
 
+/* Padded Section Manager */
 .psm {
   width: 100%;
   box-sizing: border-box;
