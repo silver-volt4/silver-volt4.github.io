@@ -9,6 +9,7 @@
   import SwapdoodleRevival from "$lib/assets/images/projects/swapdoodlerevival.png";
 
   import t from "$lib/i18n";
+  import { buildCurrentLangUrl } from "$lib/i18n/util.svelte";
 
   const PROJECTS: { [key: string]: ProjectAttrs } = {
     swapdoodlerevival: {
@@ -57,6 +58,7 @@
 <h1 class="heading">
   {$t("homepage.projects")}
 </h1>
+<p>{$t("projects.unordered")}</p>
 <div class="section">
   <div class="gridlet" style:--gr-width="350px">
     {#each Object.entries(PROJECTS) as [key, project] (key)}
@@ -65,4 +67,9 @@
       </Project>
     {/each}
   </div>
+  <p>
+    <a href={buildCurrentLangUrl("/blog")}>
+      {$t("projects.blog")}
+    </a>
+  </p>
 </div>
