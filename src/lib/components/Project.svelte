@@ -71,7 +71,7 @@
 
   .bottom {
     background-color: var(--bg);
-    height: 80px;
+    min-height: 80px;
     border-radius: 0 0 4px 4px;
     padding: 0px 16px 16px 16px;
   }
