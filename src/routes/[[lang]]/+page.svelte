@@ -1,6 +1,5 @@
 <script lang="ts">
   import Skills from "$lib/parts/Skills.svelte";
-  import Projects from "$lib/parts/Projects.svelte";
   import PageInfo from "$lib/components/PageInfo.svelte";
   import t, { locale } from "$lib/i18n";
 </script>
@@ -26,5 +25,4 @@
   </p>
 </div>
 
-<Projects />
 <Skills />
