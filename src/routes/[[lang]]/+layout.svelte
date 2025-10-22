@@ -5,6 +5,7 @@
 
   import t, { loadTranslations, locale } from "$lib/i18n";
   import { changeLangUrl, buildCurrentLangUrl } from "$lib/i18n/util.svelte";
+  import { page } from "$app/state";
 </script>
 
 <svelte:head>
@@ -15,7 +16,7 @@
   <div class="languages">
     <div class="lang">
       <a href={changeLangUrl()}>
-        <img src={langEN} alt="🇬🇧" title="Englush" />
+        <img src={langEN} alt="🇬🇧" title="English" />
       </a>
       <a href={changeLangUrl("cs")}>
         <img src={langCS} alt="🇨🇿" title="Czech" />
@@ -29,6 +30,17 @@
       <em>{$t("common.subtitle")}</em>
     </div>
   </a>
+  <nav class="ps" style="margin-bottom: 0;">
+    {#each [{url: "/", title: "common.home"}, {url: "/blog", title: "common.blog"}] as linkBase}
+      {@const link = buildCurrentLangUrl(linkBase.url)}
+      <a
+        href={link}
+        class:selected={page.url.pathname.replace(/\/+$/, "") === link.replace(/\/+$/, "")}
+      >
+        {$t(linkBase.title)}
+      </a>
+    {/each}
+  </nav>
 </header>
 
 <main class="content ps">
@@ -214,6 +226,45 @@
 
       img.pfp {
         height: 96px;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+
+    padding: 0;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    a {
+      flex: 1;
+
+      display: block;
+
+      font-size: 1.25em;
+
+      color: constants.$light;
+
+      text-decoration: none;
+
+      padding: 4px;
+
+      text-align: center;
+
+      transition: background-color 0.1s;
+
+      &:hover,
+      &.selected:hover {
+        background-color: color.adjust(constants.$light, $alpha: -0.8);
+      }
+
+      &.selected {
+        background-color: color.adjust(constants.$light, $alpha: -0.9);
+
+        border-bottom: solid 1px constants.$light;
       }
     }
   }
