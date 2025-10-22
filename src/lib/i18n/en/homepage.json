@@ -1,10 +1,10 @@
 {
-  "welcome": "A wild website appears! You appear to have landed at my homepage. Welcome!",
-  "whoami": "Hi, I'm Daniel, and I'm a programmer from the Czech Republic. Right now, I'm a student at CTU FIT.",
-  "whatido": "Most of the stuff I make is for the web, both on the frontend and backend, but I occasionally make other things as well - I've worked on some games and tried mobile app development too.",
-  "mymission": "Simply put - I like creating things that people can interact with and find useful.",
+  "welcome": "A wild website appears! It looks like you have found my homepage. Welcome!",
+  "whoami": "Hi, I'm Daniel! I'm a hobby programmer from the Czech Republic. Right now, I'm a student at FIT CTU.",
+  "whatido": "Most of the stuff I've made revolves around the web, but I occasionally try other technologies as well – I've worked on some games and tried mobile app development too.",
+  "mymission": "Simply put: I like creating things that people can interact with and find useful.",
   "techstack": {
-    "title": "Tech stack",
+    "title": "Competences",
     "langs": "Programming languages",
     "frameworks": "Frameworks/Engines",
     "othertools": "Other tools"
